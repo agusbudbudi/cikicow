@@ -1,0 +1,42 @@
+# deps
+node_modules
+
+# build output
+dist
+
+# env / secrets
+.env
+.env.*
+!.env.example
+rumahweb/config.php
+
+# local db
+local.db*
+db/*.db
+
+# vercel
+.vercel
+
+# backend (not wired up for this push — static landing page + json events only)
+api/
+db/
+rumahweb/
+scripts/
+vercel.json
+BACKSTAGE_SETUP.md
+src/pages/backstage/
+src/components/backstage/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# os
+.DS_Store
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.env*
