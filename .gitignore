@@ -27,6 +27,10 @@ BACKSTAGE_SETUP.md
 src/pages/backstage/
 src/components/backstage/
 
+# internal docs / reference — not for public repo
+DESIGN.md
+reefrence.html
+
 # logs
 npm-debug.log*
 yarn-debug.log*
