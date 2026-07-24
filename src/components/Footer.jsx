@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-obsidian text-chalk border-t border-chalk/10 py-14">
+    <footer className="bg-obsidian text-chalk border-t border-chalk/10 pt-14 pb-7">
       <div className="max-w-[1280px] mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-14 lg:gap-16">
 
         {/* Col 1: Brand Info & Social Pills */}
