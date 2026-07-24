@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Badge from './ui/Badge.jsx'
 import Button from './ui/Button.jsx'
 import { scrollToSection } from '../lib/scrollToSection.js'
@@ -70,6 +70,14 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            <Link
+              to="/join"
+              onClick={() => setMenuOpen(false)}
+              className="relative inline-flex items-center gap-1.5 py-1 hover:text-ember transition-colors"
+            >
+              Join
+              <span className="bg-ember text-chalk text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-xs">New</span>
+            </Link>
           </nav>
 
           <div className="hidden md:flex items-center gap-5 ml-auto">
@@ -81,7 +89,7 @@ export default function Header() {
                 <img src="/assets/brand/tiktok-logo-square.png" alt="" className="w-5 h-5 object-contain rounded-[3px]" />
               </a>
             </div>
-            <Button href="#join" onClick={(e) => handleNavClick(e, '#join')} size="sm" className="font-bold">Gabung Sekarang</Button>
+            <Button href="https://vm.tiktok.com/ZSYG6Y2xw/" target="_blank" rel="noopener" size="sm" className="font-bold">Gabung Sekarang</Button>
           </div>
 
           <button
@@ -122,7 +130,15 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <Button href="#join" onClick={(e) => handleNavClick(e, '#join')} className="w-full mt-1">
+            <Link
+              to="/join"
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex items-center justify-center gap-1.5 text-obsidian hover:text-ember py-2.5 border-b border-obsidian/10 font-semibold text-base transition-colors"
+            >
+              Join
+              <span className="bg-ember text-chalk text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-xs">New</span>
+            </Link>
+            <Button href="https://vm.tiktok.com/ZSYG6Y2xw/" target="_blank" rel="noopener" className="w-full mt-1">
               Gabung Sekarang
             </Button>
           </div>

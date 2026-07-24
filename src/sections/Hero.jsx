@@ -1,4 +1,4 @@
-import Badge from '../components/ui/Badge.jsx'
+import Badge, { LivePulse } from '../components/ui/Badge.jsx'
 import Button from '../components/ui/Button.jsx'
 
 export default function Hero() {
@@ -25,7 +25,7 @@ export default function Hero() {
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row items-start gap-4">
-            <Button href="#join" className="w-full sm:w-auto text-center justify-center">Mau Bergabung Sekarang</Button>
+            <Button href="https://vm.tiktok.com/ZSYG6Y2xw/" target="_blank" rel="noopener" variant="gradient" size="lg" className="w-full sm:w-auto text-center justify-center">🔥 Gabung Agency Sekarang</Button>
           </div>
 
           {/* Social Proof Avatar Stack */}
@@ -54,14 +54,39 @@ export default function Hero() {
               />
             </div>
 
-            <div className="absolute top-16 sm:top-20 right-6 md:-right-6 rotate-3 bg-cyan rounded-md shadow-[0_20px_40px_-15px_rgba(7,6,7,0.3)] px-3 sm:px-4 py-3 sm:py-4 flex items-center gap-2">
-              <img src="/assets/brand/tiktok-logo-square.png" alt="" className="w-5 h-5 sm:w-7 sm:h-7 object-contain rounded-xs" />
-              <span className="text-sm sm:text-base font-bold text-obsidian whitespace-nowrap">Official Partner</span>
+            {/* Floating creator cards */}
+            <div className="absolute top-4 left-4 sm:top-10 sm:-left-4 lg:top-10 lg:-left-12 rotate-[-6deg]">
+              <div className="flex items-center gap-2 sm:gap-2 bg-chalk rounded-sm sm:rounded-md shadow-[0_20px_40px_-15px_rgba(7,6,7,0.3)] px-3 py-2 sm:px-3 sm:py-2.5 animate-[float_4s_ease-in-out_infinite]">
+                <img src="/assets/creators/lendra-cikicow.jpg" alt="" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover ring-2 ring-cyan" />
+                <div>
+                  <p className="text-[11px] sm:text-xs font-extrabold text-obsidian whitespace-nowrap">@lendra</p>
+                  <p className="flex items-center gap-1 text-[9px] sm:text-[10px] font-bold text-obsidian whitespace-nowrap">
+                    <LivePulse dotClassName="bg-ember" /> LIVE
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="absolute -bottom-4 sm:-bottom-6 left-6 md:-left-6 -rotate-3 bg-[#FE2C55] rounded-md shadow-[0_20px_40px_-15px_rgba(7,6,7,0.3)] px-3 sm:px-4 py-3 sm:py-4 flex items-center gap-2">
-              <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-chalk shrink-0" viewBox="0 0 24 24"><path d="M12 2 3 9l9 13 9-13-9-7zM7.2 9h9.6L12 5.2 7.2 9zM6 10.5l5.1 9-6.6-9h1.5zm10.3 9 5.1-9h1.5l-6.6 9zM12 18.8 8 10.5h8L12 18.8z" /></svg>
-              <span className="text-sm sm:text-base font-bold text-chalk whitespace-nowrap">50M+ Diamonds</span>
+            <div className="absolute top-36 right-4 sm:top-44 sm:-right-4 lg:top-44 lg:-right-12 rotate-6">
+              <div className="bg-cyan text-obsidian rounded-sm sm:rounded-md shadow-[0_20px_40px_-15px_rgba(7,6,7,0.3)] px-3 py-2 sm:px-3 sm:py-2.5 animate-[float_3.5s_ease-in-out_infinite]">
+                <span className="text-[11px] sm:text-sm font-bold whitespace-nowrap">#Trending🔥</span>
+              </div>
+            </div>
+
+            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:-left-4 lg:bottom-6 lg:-left-10 -rotate-4">
+              <div className="bg-[#FE2C55] text-chalk rounded-sm sm:rounded-md shadow-[0_20px_40px_-15px_rgba(7,6,7,0.3)] px-3 py-2 sm:px-3 sm:py-2.5 animate-[float_4.5s_ease-in-out_infinite]">
+                <span className="text-[11px] sm:text-sm font-bold whitespace-nowrap">+120K Followers</span>
+              </div>
+            </div>
+
+            <div className="absolute bottom-10 right-4 sm:bottom-10 sm:-right-4 lg:bottom-10 lg:-right-16 rotate-[5deg]">
+              <div className="flex items-center gap-2 sm:gap-3 bg-chalk rounded-sm sm:rounded-md shadow-[0_20px_40px_-15px_rgba(7,6,7,0.3)] px-3 py-2 sm:px-4 sm:py-3.5 animate-[float_5s_ease-in-out_infinite]">
+                <img src="/assets/creators/jeph.guo.png" alt="" className="w-7 h-7 sm:w-11 sm:h-11 rounded-full object-cover ring-2 ring-ember" />
+                <div>
+                  <p className="text-[11px] sm:text-sm font-extrabold text-obsidian whitespace-nowrap">@jeph.guo</p>
+                  <p className="text-[9px] sm:text-xs font-bold text-ember whitespace-nowrap">📈 Income ↑</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

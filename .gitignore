@@ -22,7 +22,6 @@ api/
 db/
 rumahweb/
 scripts/
-vercel.json
 BACKSTAGE_SETUP.md
 src/pages/backstage/
 src/components/backstage/

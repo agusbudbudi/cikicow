@@ -25,21 +25,26 @@ export default function Reviews() {
         <SectionHeader align="center" eyebrow="Creator Testimonials" title="Some Love From Our Creators" />
 
         <div className="grid md:grid-cols-3 gap-4">
-          {REVIEWS.map((review, index) => (
+          {REVIEWS.map((review) => (
             <div
               key={review.handle}
-              className={`relative overflow-hidden rounded-md border border-obsidian/8 p-6 flex flex-col justify-between space-y-8 transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(7,6,7,0.15)] bg-gradient-to-br ${index === 1 ? 'from-[#FE2C55]/15 hover:from-[#FE2C55]/25' : 'from-cyan/15 hover:from-cyan/25'
-                } via-limestone to-limestone`}
+              className="flex flex-col rounded-3xl overflow-hidden border-1 border-[#FE2C55] bg-gradient-to-br from-obsidian via-obsidian/96 to-[#FE2C55] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_25px_45px_-16px_rgba(162,25,23,0.35)]"
             >
-              <p className="relative text-body text-obsidian/70 text-base leading-relaxed italic">
-                &ldquo;{review.quote}&rdquo;
-              </p>
-              <div className="relative flex items-center gap-4 border-t border-obsidian/10 pt-5">
-                <img src={review.img} alt={review.handle} className="w-12 h-12 rounded-full object-cover" />
-                <div>
-                  <h4 className="font-display font-extrabold text-lg text-obsidian">{review.handle}</h4>
-                  <p className="text-xs text-obsidian/60">Live Creator</p>
+              <div className="flex items-center gap-6 text-chalk shrink-0">
+                <div className="relative w-36 h-36 shrink-0">
+                  <img src={review.img} alt={review.handle} className="w-full h-full object-cover rounded-br-lg" />
+                  <div className="absolute inset-0 rounded-br-lg bg-gradient-to-r from-transparent via-transparent to-obsidian" />
                 </div>
+                <div>
+                  <p className="font-display font-bold text-lg">{review.handle}</p>
+                  <p className="text-sm opacity-70">Live Creator</p>
+                </div>
+              </div>
+
+              <div className="flex-1 bg-chalk text-obsidian p-6 rounded-tr-3xl">
+                <p className="text-base leading-relaxed">
+                  {review.quote}
+                </p>
               </div>
             </div>
           ))}

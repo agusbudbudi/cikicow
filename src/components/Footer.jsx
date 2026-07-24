@@ -1,15 +1,11 @@
 export default function Footer() {
   return (
-    <footer className="bg-obsidian text-chalk border-t border-chalk/10 pt-20 pb-14">
+    <footer className="bg-obsidian text-chalk border-t border-chalk/10 py-14">
       <div className="max-w-[1280px] mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-14 lg:gap-16">
 
         {/* Col 1: Brand Info & Social Pills */}
         <div className="lg:col-span-5 space-y-6">
           <img src="/assets/brand/logo-white.png" alt="Republik Cikicow Agency" className="h-16 w-auto object-contain" />
-
-          <p className="text-cyan text-xs font-bold tracking-wider">
-            Tempatnya Para Creator Berkembang!
-          </p>
 
           <p className="text-sm md:text-base text-chalk/70 leading-relaxed max-w-sm">
             Talent &amp; Live Creator Agency resmi TikTok. Tempat terbaik untuk membangun karir, memperluas jangkauan, dan mendapatkan komisi bulanan.

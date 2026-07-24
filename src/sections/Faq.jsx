@@ -28,7 +28,7 @@ export default function Faq() {
 
   return (
     <section id="faq" className="max-w-[1280px] mx-auto px-4 md:px-12 py-7 md:py-14">
-      <div className="grid lg:grid-cols-12 gap-12">
+      <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
         <div className="lg:col-span-5 space-y-4">
           <span className="text-xs font-bold text-ember uppercase tracking-widest">Questions</span>
           <h2 className="font-display font-extrabold text-4xl md:text-6xl text-obsidian">FAQ</h2>
@@ -41,7 +41,7 @@ export default function Faq() {
           {FAQS.map((faq, index) => {
             const isActive = index === openIndex
             return (
-              <div key={faq.q} className="py-5">
+              <div key={faq.q} className="py-7">
                 <button
                   onClick={() => setOpenIndex(isActive ? -1 : index)}
                   className="w-full flex items-center justify-between text-left gap-4 cursor-pointer focus:outline-none"
@@ -52,10 +52,10 @@ export default function Faq() {
                   </span>
                 </button>
                 <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${isActive ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+                  className={`grid transition-[grid-template-rows] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
                 >
-                  <div className={`overflow-hidden transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
-                    <p className="text-body text-obsidian/70 text-base pt-4 leading-relaxed">{faq.a}</p>
+                  <div className={`overflow-hidden transition-all duration-300 ${isActive ? 'opacity-100 translate-y-0 delay-100' : 'opacity-0 -translate-y-1'}`}>
+                    <p className="text-body text-obsidian/70 text-base pt-5 leading-relaxed">{faq.a}</p>
                   </div>
                 </div>
               </div>

@@ -49,9 +49,9 @@ function PreviewModal({ event, onClose }) {
         type="button"
         onClick={onClose}
         aria-label="Close preview"
-        className="absolute top-4 right-4 md:top-6 md:right-6 text-limestone text-3xl leading-none w-10 h-10 flex items-center justify-center rounded-full hover:bg-limestone/10"
+        className="absolute top-4 right-4 md:top-6 md:right-6 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-chalk/10 text-chalk cursor-pointer hover:bg-chalk hover:text-obsidian transition-colors"
       >
-        &times;
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
       </button>
       <img
         src={event.image}
