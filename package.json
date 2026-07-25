@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "migrate": "node scripts/migrate.js"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
@@ -15,8 +16,11 @@
     "vite": "^6.0.0"
   },
   "dependencies": {
+    "@libsql/client": "^0.17.4",
+    "@vercel/blob": "^2.6.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-helmet-async": "^3.0.0",
     "react-router-dom": "^7.18.1"
   }
 }

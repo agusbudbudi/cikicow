@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import SEO from './components/SEO.jsx'
 import Header from './components/Header.jsx'
 import BackgroundDecor from './components/BackgroundDecor.jsx'
 import JoinPopup from './components/JoinPopup.jsx'
@@ -29,6 +30,11 @@ export default function App() {
 
   return (
     <>
+      <SEO
+        title="Republik Cikicow Agency — Agensi Resmi TikTok untuk Talent & Live Creator"
+        description="Republik Cikicow Agency adalah agensi TikTok resmi tempat talent dan live creator berkembang. Simak kelebihan join agency TikTok: bonus bulanan, event eksklusif, pendampingan admin, dan komunitas creator se-Indonesia."
+        path="/"
+      />
       <JoinPopup />
       <Header />
       <main className="relative">

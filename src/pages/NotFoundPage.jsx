@@ -1,3 +1,4 @@
+import SEO from '../components/SEO.jsx'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
 import Button from '../components/ui/Button.jsx'
@@ -26,6 +27,12 @@ function NotFoundIllustration() {
 export default function NotFoundPage() {
   return (
     <>
+      <SEO
+        title="Halaman Tidak Ditemukan — Republik Cikicow Agency"
+        description="Halaman yang kamu cari tidak ditemukan di situs Republik Cikicow Agency."
+        path="/404"
+        noindex
+      />
       <Header />
       <section className="min-h-[70vh] flex items-center justify-center px-4 py-16 text-center">
         <div className="max-w-md mx-auto space-y-6">

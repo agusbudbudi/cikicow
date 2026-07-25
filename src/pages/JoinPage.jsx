@@ -1,3 +1,4 @@
+import SEO from '../components/SEO.jsx'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
 import Button from '../components/ui/Button.jsx'
@@ -5,6 +6,11 @@ import Button from '../components/ui/Button.jsx'
 export default function JoinPage() {
   return (
     <>
+      <SEO
+        title="Gabung Agensi TikTok Republik Cikicow — Daftar Sekarang"
+        description="Ajukan diri bergabung dengan Republik Cikicow, agensi resmi TikTok. Rasakan kelebihan join agency TikTok: pendampingan admin, komisi bulanan, dan event eksklusif."
+        path="/join"
+      />
       <Header />
       <div className="bg-obsidian text-chalk">
         <div className="max-w-md md:max-w-4xl mx-auto w-full px-6 py-8 md:py-16">
@@ -31,7 +37,7 @@ export default function JoinPage() {
             </div>
 
             <div className="md:order-1 mt-6 md:mt-0 md:max-w-xs bg-chalk rounded-2xl p-6 flex flex-col items-center">
-              <img src="/assets/brand/qr-join.png" alt="QR Code Republik Cikicow" className="w-full max-w-[220px] aspect-square rounded-xl object-contain" />
+              <img src="/assets/brand/qr-join.png" alt="QR Code Republik Cikicow" width="600" height="600" className="w-full max-w-[220px] aspect-square rounded-xl object-contain" />
 
               <p className="text-obsidian/70 text-sm leading-relaxed mt-4 self-start">
                 Pindai kode QR untuk mempelajari tentang Agensi dan mengajukan diri untuk bergabung.
