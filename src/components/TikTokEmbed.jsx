@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { ensureTikTokEmbedScript } from '../lib/tiktokEmbedScript.js'
 
 function extractVideoId(url) {
   const match = url.match(/\/video\/(\d+)/)
@@ -7,11 +8,7 @@ function extractVideoId(url) {
 
 export default function TikTokEmbed({ url, className = '' }) {
   useEffect(() => {
-    if (document.querySelector('script[src="https://www.tiktok.com/embed.js"]')) return
-    const script = document.createElement('script')
-    script.src = 'https://www.tiktok.com/embed.js'
-    script.async = true
-    document.body.appendChild(script)
+    ensureTikTokEmbedScript()
   }, [])
 
   const videoId = extractVideoId(url)
