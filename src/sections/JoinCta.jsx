@@ -23,9 +23,9 @@ export default function JoinCta() {
 
           <div className="flex flex-wrap items-center gap-3 pt-1">
             <div className="flex -space-x-3 shrink-0">
-              <img src="/assets/creators/coco.hendra.png" alt="Creator" className="h-9 w-9 rounded-full ring-2 ring-obsidian object-cover" />
-              <img src="/assets/creators/ajus.shi.png" alt="Creator" className="h-9 w-9 rounded-full ring-2 ring-obsidian object-cover" />
-              <img src="/assets/creators/jeph.guo.png" alt="Creator" className="h-9 w-9 rounded-full ring-2 ring-obsidian object-cover" />
+              <img src="/assets/creators/coco.hendra.webp" alt="Coco Hendra - Live Creator Republik Cikicow" width="36" height="36" loading="lazy" className="h-9 w-9 rounded-full ring-2 ring-obsidian object-cover" />
+              <img src="/assets/creators/ajus.shi.webp" alt="Ajus Shi - Live Creator Republik Cikicow" width="36" height="36" loading="lazy" className="h-9 w-9 rounded-full ring-2 ring-obsidian object-cover" />
+              <img src="/assets/creators/jeph.guo.webp" alt="Jeph Guo - Live Creator Republik Cikicow" width="36" height="36" loading="lazy" className="h-9 w-9 rounded-full ring-2 ring-obsidian object-cover" />
             </div>
             <p className="text-sm text-chalk/60 font-medium">Bergabung bersama <span className="text-chalk font-bold">500+ creator</span> lainnya</p>
           </div>
@@ -40,8 +40,11 @@ export default function JoinCta() {
 
         <div className="relative w-64 sm:w-72 md:w-[21rem] lg:w-[25rem] shrink-0 -mb-8 sm:-mb-10 md:-mt-28 md:self-end md:-mb-14 md:ml-auto md:-mr-6">
           <img
-            src="/assets/banners/hero-cta.png"
-            alt=""
+            src="/assets/banners/hero-cta.webp"
+            alt="Gabung agensi TikTok resmi Republik Cikicow sekarang"
+            width="1284"
+            height="1600"
+            loading="lazy"
             className="relative w-full h-auto object-contain pointer-events-none select-none"
           />
 

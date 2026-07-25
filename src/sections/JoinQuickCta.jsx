@@ -9,7 +9,7 @@ export default function JoinQuickCta() {
 
         <div className="relative flex flex-col md:flex-row items-center gap-5 md:gap-10 px-5 py-8 md:p-6">
           <div className="shrink-0 bg-chalk rounded-sm p-1 md:p-3">
-            <img src="/assets/brand/qr-join.png" alt="QR Code Republik Cikicow" className="w-36 h-36 md:w-40 md:h-40 object-contain" />
+            <img src="/assets/brand/qr-join.png" alt="QR Code Republik Cikicow" width="600" height="600" loading="lazy" className="w-36 h-36 md:w-40 md:h-40 object-contain" />
           </div>
 
           <div className="text-center md:text-left">
@@ -20,8 +20,11 @@ export default function JoinQuickCta() {
           </div>
 
           <img
-            src="/assets/banners/hero-join.png"
+            src="/assets/banners/hero-join.webp"
             alt=""
+            width="1600"
+            height="1600"
+            loading="lazy"
             className="hidden md:block ml-auto mr-12 self-end -mt-16 lg:-mt-24 -mb-6 w-64 lg:w-70 h-auto object-contain pointer-events-none select-none"
           />
         </div>

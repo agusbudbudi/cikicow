@@ -4,17 +4,17 @@ const REVIEWS = [
   {
     quote: 'Republik Cikicow luar biasa, agency yg merangkul para talent dan member nya dgn sangat baik, sukses terus Cikicow ku!',
     handle: '@zihandhini',
-    img: '/assets/creators/zihandhini.jpeg',
+    img: '/assets/creators/zihandhini.webp',
   },
   {
     quote: 'Banyak event yang dapat diikuti baik event Official TikTok maupun event internal, sehingga berkesempatan untuk mendapatkan hadiah.',
     handle: '@ajus.shi',
-    img: '/assets/creators/ajus.shi.png',
+    img: '/assets/creators/ajus.shi.webp',
   },
   {
     quote: 'Saya sangat senang bisa bergabung di agency yang menurutku terbaik dari segi semuanya. Kualitas & responsif semua admin bagus sekali!',
     handle: '@disradicha_',
-    img: '/assets/creators/disradicha.png',
+    img: '/assets/creators/disradicha.webp',
   },
 ]
 
@@ -32,7 +32,7 @@ export default function Reviews() {
             >
               <div className="flex items-center gap-6 text-chalk shrink-0">
                 <div className="relative w-36 h-36 shrink-0">
-                  <img src={review.img} alt={review.handle} className="w-full h-full object-cover rounded-br-lg" />
+                  <img src={review.img} alt={`${review.handle} - Testimoni Live Creator Republik Cikicow`} width="700" height="700" loading="lazy" className="w-full h-full object-cover rounded-br-lg" />
                   <div className="absolute inset-0 rounded-br-lg bg-gradient-to-r from-transparent via-transparent to-obsidian" />
                 </div>
                 <div>
