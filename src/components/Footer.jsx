@@ -5,7 +5,7 @@ export default function Footer() {
 
         {/* Col 1: Brand Info & Social Pills */}
         <div className="lg:col-span-5 space-y-6">
-          <img src="/assets/brand/logo-white.png" alt="Republik Cikicow Agency" className="h-16 w-auto object-contain" />
+          <img src="/assets/brand/logo-white.webp" alt="Republik Cikicow Agency - Agensi Resmi TikTok Indonesia" width="250" height="125" loading="lazy" className="h-16 w-auto object-contain" />
 
           <p className="text-sm md:text-base text-chalk/70 leading-relaxed max-w-sm">
             Talent &amp; Live Creator Agency resmi TikTok. Tempat terbaik untuk membangun karir, memperluas jangkauan, dan mendapatkan komisi bulanan.

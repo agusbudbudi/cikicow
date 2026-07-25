@@ -28,12 +28,12 @@ export default function JoinPopup() {
           type="button"
           onClick={dismiss}
           aria-label="Tutup"
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-obsidian/60 text-chalk flex items-center justify-center hover:bg-obsidian transition-colors"
+          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-obsidian/60 text-chalk flex items-center justify-center hover:bg-obsidian transition-colors cursor-pointer"
         >
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
         </button>
 
-        <img src="/assets/banners/banner-cikicow-talent.png" alt="Republik Cikicow Talent" className="w-full h-30 object-cover" />
+        <img src="/assets/banners/banner-cikicow-talent.webp" alt="Republik Cikicow Talent - Agensi Resmi TikTok untuk Live Creator" width="1600" height="400" className="w-full h-30 object-cover" />
 
         <div className="p-6 text-center">
           <div>
@@ -46,7 +46,7 @@ export default function JoinPopup() {
           </div>
 
           <div className="bg-chalk rounded-xl p-4 flex flex-col items-center gap-3">
-            <img src="/assets/brand/qr-join.png" alt="QR Code Republik Cikicow" className="w-60 h-60 object-contain" />
+            <img src="/assets/brand/qr-join.png" alt="QR Code Republik Cikicow" width="600" height="600" className="w-60 h-60 object-contain" />
             <a
               href="/assets/brand/qr-join-download.png"
               download

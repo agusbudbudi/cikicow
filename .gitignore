@@ -8,7 +8,6 @@ dist
 .env
 .env.*
 !.env.example
-rumahweb/config.php
 
 # local db
 local.db*
@@ -16,15 +15,6 @@ db/*.db
 
 # vercel
 .vercel
-
-# backend (not wired up for this push — static landing page + json events only)
-api/
-db/
-rumahweb/
-scripts/
-BACKSTAGE_SETUP.md
-src/pages/backstage/
-src/components/backstage/
 
 # internal docs / reference — not for public repo
 DESIGN.md

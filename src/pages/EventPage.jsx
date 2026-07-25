@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import SEO from '../components/SEO.jsx'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
 import Badge from '../components/ui/Badge.jsx'
 import FormattedText from '../components/ui/FormattedText.jsx'
-import events from '../data/events.json'
+import { listEvents } from '../lib/eventsApi.js'
 
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
@@ -74,14 +75,25 @@ function EventGrid({ events, onPreview }) {
 }
 
 export default function EventPage() {
+  const [events, setEvents] = useState(null)
+  const [error, setError] = useState(null)
   const [previewEvent, setPreviewEvent] = useState(null)
 
+  useEffect(() => {
+    listEvents().then(setEvents).catch((err) => setError(err.message))
+  }, [])
+
   const now = new Date()
-  const ongoingEvents = events.filter((event) => new Date(event.endDate) >= now)
-  const finishedEvents = events.filter((event) => new Date(event.endDate) < now)
+  const ongoingEvents = (events ?? []).filter((event) => new Date(event.endDate) >= now)
+  const finishedEvents = (events ?? []).filter((event) => new Date(event.endDate) < now)
 
   return (
     <>
+      <SEO
+        title="Event & Campaign TikTok — Republik Cikicow Agency"
+        description="Ikuti event official TikTok dan kompetisi internal khusus member Republik Cikicow, agensi resmi TikTok untuk live creator se-Indonesia."
+        path="/event"
+      />
       <Header />
       <main>
         <section className="relative pt-16 md:pt-12 pb-6 md:pb-8">
@@ -96,6 +108,14 @@ export default function EventPage() {
 
         <section className="pt-6 md:pt-8 pb-16 md:pb-24 bg-pumice">
           <div className="max-w-[1280px] mx-auto px-4 md:px-12 space-y-12 md:space-y-16">
+            {!events && !error && <p className="text-center text-obsidian/50">Memuat event...</p>}
+
+            {error && <p className="text-center text-red-600">{error}</p>}
+
+            {events && events.length === 0 && (
+              <p className="text-center text-obsidian/50">Belum ada event.</p>
+            )}
+
             {ongoingEvents.length > 0 && (
               <div className="space-y-4 md:space-y-6">
                 <h2 className="font-display font-extrabold text-2xl md:text-3xl text-obsidian">Sedang Berlangsung</h2>

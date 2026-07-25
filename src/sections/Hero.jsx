@@ -17,7 +17,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap items-center gap-3">
             <span className="font-display font-black text-xl sm:text-2xl text-obsidian tracking-tight">#RepublikCikicow</span>
-            <Badge variant="cyan" icon="/assets/brand/tiktok-logo.png">Official Partner</Badge>
+            <Badge variant="cyan" icon="/assets/brand/tiktok-logo.webp">Official Partner</Badge>
           </div>
 
           <p className="text-body text-obsidian/70 text-base sm:text-lg leading-relaxed max-w-xl">
@@ -31,10 +31,10 @@ export default function Hero() {
           {/* Social Proof Avatar Stack */}
           <div className="pt-6 flex items-center gap-6">
             <div className="flex -space-x-3 overflow-hidden shrink-0">
-              <img src="/assets/creators/lendra-cikicow.jpg" alt="Creator 1" className="inline-block h-11 w-11 rounded-full ring-2 ring-pumice object-cover" />
-              <img src="/assets/creators/coco.hendra.png" alt="Creator 2" className="inline-block h-11 w-11 rounded-full ring-2 ring-pumice object-cover" />
-              <img src="/assets/creators/jeph.guo.png" alt="Creator 3" className="inline-block h-11 w-11 rounded-full ring-2 ring-pumice object-cover" />
-              <img src="/assets/creators/ajus.shi.png" alt="Creator 4" className="inline-block h-11 w-11 rounded-full ring-2 ring-pumice object-cover" />
+              <img src="/assets/creators/lendra-cikicow.webp" alt="Lendra Cikicow - Live Creator Republik Cikicow" width="44" height="44" className="inline-block h-11 w-11 rounded-full ring-2 ring-pumice object-cover" />
+              <img src="/assets/creators/coco.hendra.webp" alt="Coco Hendra - Live Creator Republik Cikicow" width="44" height="44" className="inline-block h-11 w-11 rounded-full ring-2 ring-pumice object-cover" />
+              <img src="/assets/creators/jeph.guo.webp" alt="Jeph Guo - Live Creator Republik Cikicow" width="44" height="44" className="inline-block h-11 w-11 rounded-full ring-2 ring-pumice object-cover" />
+              <img src="/assets/creators/ajus.shi.webp" alt="Ajus Shi - Live Creator Republik Cikicow" width="44" height="44" className="inline-block h-11 w-11 rounded-full ring-2 ring-pumice object-cover" />
             </div>
             <div>
               <p className="text-sm font-extrabold text-obsidian">500+ Creator Telah Bergabung</p>
@@ -48,8 +48,11 @@ export default function Hero() {
           <div className="relative sm:mx-6">
             <div className="rounded-md overflow-hidden">
               <img
-                src="/assets/banners/hero-cikicow.png"
-                alt="Republik Cikicow Creator"
+                src="/assets/banners/hero-cikicow.webp"
+                alt="Talent live streaming TikTok bersama Republik Cikicow, agensi resmi TikTok"
+                width="1090"
+                height="1600"
+                fetchPriority="high"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -57,7 +60,7 @@ export default function Hero() {
             {/* Floating creator cards */}
             <div className="absolute top-4 left-4 sm:top-10 sm:-left-4 lg:top-10 lg:-left-12 rotate-[-6deg]">
               <div className="flex items-center gap-2 sm:gap-2 bg-chalk rounded-sm sm:rounded-md shadow-[0_20px_40px_-15px_rgba(7,6,7,0.3)] px-3 py-2 sm:px-3 sm:py-2.5 animate-[float_4s_ease-in-out_infinite]">
-                <img src="/assets/creators/lendra-cikicow.jpg" alt="" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover ring-2 ring-cyan" />
+                <img src="/assets/creators/lendra-cikicow.webp" alt="" width="32" height="32" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover ring-2 ring-cyan" />
                 <div>
                   <p className="text-[11px] sm:text-xs font-extrabold text-obsidian whitespace-nowrap">@lendra</p>
                   <p className="flex items-center gap-1 text-[9px] sm:text-[10px] font-bold text-obsidian whitespace-nowrap">
@@ -81,7 +84,7 @@ export default function Hero() {
 
             <div className="absolute bottom-10 right-4 sm:bottom-10 sm:-right-4 lg:bottom-10 lg:-right-16 rotate-[5deg]">
               <div className="flex items-center gap-2 sm:gap-3 bg-chalk rounded-sm sm:rounded-md shadow-[0_20px_40px_-15px_rgba(7,6,7,0.3)] px-3 py-2 sm:px-4 sm:py-3.5 animate-[float_5s_ease-in-out_infinite]">
-                <img src="/assets/creators/jeph.guo.png" alt="" className="w-7 h-7 sm:w-11 sm:h-11 rounded-full object-cover ring-2 ring-ember" />
+                <img src="/assets/creators/jeph.guo.webp" alt="" width="44" height="44" className="w-7 h-7 sm:w-11 sm:h-11 rounded-full object-cover ring-2 ring-ember" />
                 <div>
                   <p className="text-[11px] sm:text-sm font-extrabold text-obsidian whitespace-nowrap">@jeph.guo</p>
                   <p className="text-[9px] sm:text-xs font-bold text-ember whitespace-nowrap">📈 Income ↑</p>

@@ -35,7 +35,7 @@ function WallCard({ creator, style, mobileHidden }) {
         className={`group relative overflow-hidden rounded-md shadow-[0_20px_40px_-15px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:rotate-0 hover:scale-[1.03] hover:z-10 ${HEIGHTS[style.h]}`}
       >
         <div className="absolute inset-0 bg-limestone">
-          <img src={creator.img} alt={creator.handle} className="w-full h-full object-cover" />
+          <img src={creator.img} alt={`${creator.handle} - Live Creator TikTok Republik Cikicow`} width="700" height="700" loading="lazy" className="w-full h-full object-cover" />
           <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-obsidian/90 via-obsidian/30 to-transparent" />
 
           <span className="absolute top-2 left-2 inline-flex items-center bg-obsidian text-chalk text-[9px] font-bold px-1.5 py-0.5 rounded-xs whitespace-nowrap">
@@ -45,7 +45,7 @@ function WallCard({ creator, style, mobileHidden }) {
           <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between gap-1">
             <span className="text-chalk text-xs font-display font-extrabold truncate">{creator.handle}</span>
             <span className="rounded-full bg-chalk p-1 shrink-0">
-              <img src="/assets/brand/tiktok-logo-square.png" alt="" className="w-3.5 h-3.5 object-contain rounded-full" />
+              <img src="/assets/brand/tiktok-logo-square.webp" alt="" width="200" height="200" loading="lazy" className="w-3.5 h-3.5 object-contain rounded-full" />
             </span>
           </div>
         </div>

@@ -1,7 +1,8 @@
+import { useEffect, useState } from 'react'
 import Badge from '../components/ui/Badge.jsx'
 import Button from '../components/ui/Button.jsx'
 import SectionHeader from '../components/ui/SectionHeader.jsx'
-import events from '../data/events.json'
+import { listEvents } from '../lib/eventsApi.js'
 
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
@@ -31,6 +32,7 @@ function EventMedia({ event }) {
       <img
         src={event.image}
         alt={event.name}
+        loading="lazy"
         className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
       />
     </div>
@@ -38,6 +40,12 @@ function EventMedia({ event }) {
 }
 
 export default function Events() {
+  const [events, setEvents] = useState([])
+
+  useEffect(() => {
+    listEvents().then(setEvents).catch(() => {})
+  }, [])
+
   if (events.length === 0) return null
 
   return (

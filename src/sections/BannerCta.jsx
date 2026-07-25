@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Card from '../components/ui/Card.jsx'
-import BANNERS from '../data/joinBanners.json'
+import { listJoinBanners } from '../lib/joinBannersApi.js'
 
 function BannerSlider({ banners }) {
   const [index, setIndex] = useState(0)
@@ -22,6 +22,7 @@ function BannerSlider({ banners }) {
             key={banner.id}
             src={banner.image}
             alt={banner.alt}
+            loading="lazy"
             className="w-full shrink-0 object-cover aspect-[4/1]"
           />
         ))}
@@ -33,7 +34,7 @@ function BannerSlider({ banners }) {
             type="button"
             aria-label="Previous banner"
             onClick={() => setIndex((i) => (i - 1 + banners.length) % banners.length)}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-chalk/80 text-obsidian flex items-center justify-center hover:bg-chalk transition-colors"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-chalk/80 text-obsidian flex items-center justify-center hover:bg-chalk transition-colors cursor-pointer"
           >
             ‹
           </button>
@@ -41,7 +42,7 @@ function BannerSlider({ banners }) {
             type="button"
             aria-label="Next banner"
             onClick={() => setIndex((i) => (i + 1) % banners.length)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-chalk/80 text-obsidian flex items-center justify-center hover:bg-chalk transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-chalk/80 text-obsidian flex items-center justify-center hover:bg-chalk transition-colors cursor-pointer"
           >
             ›
           </button>
@@ -63,16 +64,24 @@ function BannerSlider({ banners }) {
 }
 
 export default function BannerCta() {
+  const [banners, setBanners] = useState([])
+
+  useEffect(() => {
+    listJoinBanners()
+      .then((all) => setBanners(all.filter((b) => b.isActive)))
+      .catch(() => { })
+  }, [])
+
   return (
     <section className="max-w-[1280px] mx-auto px-4 md:px-12 py-7 md:py-14">
       <Card padding="p-0" className="overflow-hidden !rounded-lg">
-        <BannerSlider banners={BANNERS} />
+        {banners.length > 0 && <BannerSlider banners={banners} />}
         <div className="p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-center md:text-left">
             <div className="order-2 md:order-1 flex -space-x-2 md:-space-x-4 overflow-hidden shrink-0">
-              <img src="/assets/creators/coco.hendra.png" alt="Creator" className="inline-block h-10 w-10 md:h-16 md:w-16 rounded-full ring-4 ring-limestone object-cover" />
-              <img src="/assets/creators/ajus.shi.png" alt="Creator" className="inline-block h-10 w-10 md:h-16 md:w-16 rounded-full ring-4 ring-limestone object-cover" />
-              <img src="/assets/creators/jeph.guo.png" alt="Creator" className="inline-block h-10 w-10 md:h-16 md:w-16 rounded-full ring-4 ring-limestone object-cover" />
+              <img src="/assets/creators/coco.hendra.webp" alt="Coco Hendra - Live Creator Republik Cikicow" width="64" height="64" loading="lazy" className="inline-block h-10 w-10 md:h-16 md:w-16 rounded-full ring-4 ring-limestone object-cover" />
+              <img src="/assets/creators/ajus.shi.webp" alt="Ajus Shi - Live Creator Republik Cikicow" width="64" height="64" loading="lazy" className="inline-block h-10 w-10 md:h-16 md:w-16 rounded-full ring-4 ring-limestone object-cover" />
+              <img src="/assets/creators/jeph.guo.webp" alt="Jeph Guo - Live Creator Republik Cikicow" width="64" height="64" loading="lazy" className="inline-block h-10 w-10 md:h-16 md:w-16 rounded-full ring-4 ring-limestone object-cover" />
             </div>
             <div className="order-1 md:order-2">
               <h3 className="font-display font-extrabold text-2xl md:text-3xl text-obsidian">Sudah Siap Bergabung?</h3>

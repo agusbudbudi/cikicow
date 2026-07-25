@@ -12,7 +12,7 @@ export default function Stats() {
     <section className="max-w-[1280px] mx-auto px-4 md:px-12 py-7 md:py-14 space-y-10 md:space-y-14">
       <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
         <div className="flex items-center gap-2.5">
-          <img src="/assets/brand/tiktok-logo.png" alt="TikTok" className="h-6 sm:h-7 object-contain" />
+          <img src="/assets/brand/tiktok-logo.webp" alt="TikTok - Partner Resmi Republik Cikicow" width="auto" height="auto" loading="lazy" className="h-6 sm:h-7 object-contain" />
           <span className="text-base sm:text-lg font-bold text-obsidian/70 tracking-tight">Official TikTok LIVE Creator Agency</span>
         </div>
 

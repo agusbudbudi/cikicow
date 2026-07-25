@@ -2,8 +2,8 @@ import Badge from '../components/ui/Badge.jsx'
 import Card from '../components/ui/Card.jsx'
 
 const FOCUS_AREAS = [
-  { icon: '/assets/icons/focus-group.png', title: 'Creator Community', desc: 'Komunitas ramah untuk bertukar pikiran & kolaborasi.' },
-  { icon: '/assets/icons/goal.png', title: 'Career Success', desc: 'Kesempatan yang sama bagi setiap creator untuk sukses.' },
+  { icon: '/assets/icons/focus-group.webp', title: 'Creator Community', desc: 'Komunitas ramah untuk bertukar pikiran & kolaborasi.' },
+  { icon: '/assets/icons/goal.webp', title: 'Career Success', desc: 'Kesempatan yang sama bagi setiap creator untuk sukses.' },
 ]
 
 export default function About() {
@@ -25,7 +25,7 @@ export default function About() {
           <div className="grid grid-cols-2 gap-4 pt-4">
             {FOCUS_AREAS.map((item) => (
               <Card key={item.title} padding="p-3 sm:p-5" className="space-y-2">
-                <img src={item.icon} alt={item.title} className="w-10 h-10 object-contain" />
+                <img src={item.icon} alt={item.title} width="128" height="128" loading="lazy" className="w-10 h-10 object-contain" />
                 <h4 className="font-display font-bold text-xl text-obsidian pt-1">{item.title}</h4>
                 <p className="text-xs text-obsidian/70 leading-relaxed">{item.desc}</p>
               </Card>
@@ -38,7 +38,7 @@ export default function About() {
             padding="p-0"
             className="relative overflow-hidden transition-all duration-300 hover:shadow-[0_20px_50px_-20px_rgba(7,6,7,0.2)]"
           >
-            <img src="/assets/banners/banner-about.png" alt="Komunitas Cikicow" className="w-full h-auto object-cover" />
+            <img src="/assets/banners/banner-about.webp" alt="Komunitas creator Republik Cikicow, agensi TikTok resmi se-Indonesia" width="1600" height="1426" loading="lazy" className="w-full h-auto object-cover" />
             <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-obsidian/95 via-obsidian/40 to-transparent pointer-events-none" />
 
             <div className="absolute top-4 left-4">
@@ -51,7 +51,7 @@ export default function About() {
                 <p className="text-xs font-medium text-chalk/70 mt-1">Dari Sabang sampai Merauke bergabung di Republik Cikicow</p>
               </div>
               <span className="bg-chalk rounded-full w-12 h-12 flex items-center justify-center shrink-0 p-2.5">
-                <img src="/assets/brand/tiktok-logo-square.png" alt="TikTok" className="w-full h-full object-contain rounded-full" />
+                <img src="/assets/brand/tiktok-logo-square.webp" alt="TikTok" width="200" height="200" loading="lazy" className="w-full h-full object-contain rounded-full" />
               </span>
             </div>
           </Card>
