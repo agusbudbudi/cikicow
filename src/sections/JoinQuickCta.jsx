@@ -1,6 +1,6 @@
-export default function JoinQuickCta() {
+export default function JoinQuickCta({ flushBottom = false }) {
   return (
-    <section className="max-w-[1280px] mx-auto px-0 md:px-12 pt-0 pb-7 md:py-14">
+    <section className={`max-w-[1280px] mx-auto px-0 md:px-12 pt-0 md:py-14 ${flushBottom ? 'pb-0' : 'pb-7'}`}>
       <div className="relative rounded-none md:rounded-lg bg-gradient-to-r from-[#FE2C55] via-obsidian to-obsidian text-chalk">
         <div className="absolute inset-0 rounded-none md:rounded-lg overflow-hidden pointer-events-none">
           <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-chalk/10 blur-3xl" />

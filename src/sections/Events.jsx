@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Badge from '../components/ui/Badge.jsx'
 import Button from '../components/ui/Button.jsx'
 import SectionHeader from '../components/ui/SectionHeader.jsx'
+import { EventTeaserSkeleton, SkeletonGrid } from '../components/ui/LoadingState.jsx'
+import { formatRange } from '../lib/eventFormat.js'
 import { listEvents } from '../lib/eventsApi.js'
-
-function formatDate(dateStr) {
-  return new Date(dateStr).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
-}
-
-function formatRange(startDate, endDate) {
-  if (startDate === endDate) return formatDate(startDate)
-  return `${formatDate(startDate)} - ${formatDate(endDate)}`
-}
 
 function isActive(event) {
   const today = new Date().setHours(0, 0, 0, 0)
@@ -40,13 +34,13 @@ function EventMedia({ event }) {
 }
 
 export default function Events() {
-  const [events, setEvents] = useState([])
+  const [events, setEvents] = useState(null)
 
   useEffect(() => {
-    listEvents().then(setEvents).catch(() => {})
+    listEvents().then(setEvents).catch(() => setEvents([]))
   }, [])
 
-  if (events.length === 0) return null
+  if (events && events.length === 0) return null
 
   return (
     <section id="events" className="relative w-full overflow-hidden py-12 md:py-14">
@@ -61,29 +55,43 @@ export default function Events() {
           description="Ikuti event official TikTok &amp; kompetisi internal khusus member Republik Cikicow."
         />
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {sortEvents(events).slice(0, 3).map((event) => (
-            <a key={event.id} href="/event" className="group block space-y-4 transition-transform duration-300 hover:-translate-y-1.5">
-              <EventMedia event={event} />
-              <div className="space-y-2">
-                <Badge variant="ember">{formatRange(event.startDate, event.endDate)}</Badge>
-                <h3 className="font-display font-bold text-2xl text-obsidian leading-snug">{event.name}</h3>
-                <p className="text-sm text-obsidian/70 line-clamp-2">{event.detail}</p>
-                <span className="inline-flex items-center gap-2 text-sm font-bold text-obsidian pt-1">
-                  Lihat Detail
-                  <span className="w-6 h-6 rounded-full bg-obsidian/10 text-obsidian flex items-center justify-center shrink-0 transition-all group-hover:bg-ember group-hover:text-chalk group-hover:translate-x-1">
-                    <svg className="w-3 h-3 fill-current -rotate-90" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5z" /></svg>
+        {!events && (
+          <SkeletonGrid
+            count={3}
+            gridClassName="grid md:grid-cols-3 gap-10 items-start"
+            renderItem={() => <EventTeaserSkeleton />}
+          />
+        )}
+
+        {events && events.length > 0 && (
+          <div className="grid md:grid-cols-3 gap-10 items-start">
+            {sortEvents(events).slice(0, 3).map((event) => (
+              <Link
+                key={event.id}
+                to={`/event/${event.id}`}
+                className="group text-left w-full p-0 block space-y-4 transition-transform duration-300 hover:-translate-y-1.5"
+              >
+                <EventMedia event={event} />
+                <div className="space-y-2">
+                  <Badge variant="ember">{formatRange(event.startDate, event.endDate)}</Badge>
+                  <h3 className="font-display font-bold text-2xl text-obsidian leading-snug">{event.name}</h3>
+                  <p className="text-sm text-obsidian/70 line-clamp-2">{event.detail}</p>
+                  <span className="inline-flex items-center gap-2 text-sm font-bold text-obsidian pt-1">
+                    Lihat Detail
+                    <span className="w-6 h-6 rounded-full bg-obsidian/10 text-obsidian flex items-center justify-center shrink-0 transition-all group-hover:bg-ember group-hover:text-chalk group-hover:translate-x-1">
+                      <svg className="w-3 h-3 fill-current -rotate-90" viewBox="0 0 24 24"><path d="M12 15.5 5 8.5l1.4-1.4L12 12.7l5.6-5.6L19 8.5z" /></svg>
+                    </span>
                   </span>
-                </span>
-              </div>
-            </a>
-          ))}
-        </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
 
         <div className="text-center pt-2">
           <Button href="/event" variant="outline" className="w-full md:w-auto">Lihat Semua Event</Button>
         </div>
       </div>
-    </section>
+      </section>
   )
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const FAQS = [
   {
@@ -23,11 +24,27 @@ const FAQS = [
   },
 ]
 
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+}
+
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
     <section id="faq" className="max-w-[1280px] mx-auto px-4 md:px-12 py-7 md:py-14">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(FAQ_SCHEMA)}</script>
+      </Helmet>
       <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
         <div className="lg:col-span-5 space-y-4">
           <span className="text-xs font-bold text-ember uppercase tracking-widest">Questions</span>

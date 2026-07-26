@@ -5,10 +5,10 @@ import Button from './ui/Button.jsx'
 import { scrollToSection } from '../lib/scrollToSection.js'
 
 const NAV_LINKS = [
-  { href: '#events', label: 'Event' },
+  { href: '/event', label: 'Event' },
   { href: '#services', label: 'Layanan' },
   { href: '#about', label: 'Tentang Kami' },
-  { href: '#creators', label: 'Creator' },
+  { href: '/creator', label: 'Creator' },
   { href: '#faq', label: 'FAQ' },
 ]
 
@@ -26,12 +26,12 @@ export default function Header() {
   }, [])
 
   function handleNavClick(e, href) {
+    setMenuOpen(false)
+    e.preventDefault()
     if (!href.startsWith('#')) {
-      setMenuOpen(false)
+      navigate(href)
       return
     }
-    e.preventDefault()
-    setMenuOpen(false)
     if (location.pathname === '/') {
       scrollToSection(href)
       window.history.replaceState(null, '', href)

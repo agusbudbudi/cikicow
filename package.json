@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prebuild": "node scripts/generate-sitemap.js",
     "preview": "vite preview",
-    "migrate": "node scripts/migrate.js"
+    "migrate": "node scripts/migrate.js",
+    "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",

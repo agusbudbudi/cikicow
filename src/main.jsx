@@ -5,8 +5,10 @@ import { HelmetProvider } from 'react-helmet-async'
 import './style.css'
 import App from './App.jsx'
 import CreatorPage from './pages/CreatorPage.jsx'
+import CreatorDetailPage from './pages/CreatorDetailPage.jsx'
 import CreatorAddPage from './pages/CreatorAddPage.jsx'
 import EventPage from './pages/EventPage.jsx'
+import EventDetailPage from './pages/EventDetailPage.jsx'
 import JoinPage from './pages/JoinPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
@@ -29,7 +31,9 @@ createRoot(document.getElementById('root')).render(
           <Route path="/" element={<App />} />
           <Route path="/creator" element={<CreatorPage />} />
           <Route path="/creator/add" element={<CreatorAddPage />} />
+          <Route path="/creator/:id" element={<CreatorDetailPage />} />
           <Route path="/event" element={<EventPage />} />
+          <Route path="/event/:id" element={<EventDetailPage />} />
           <Route path="/join" element={<JoinPage />} />
           <Route path="/backstage" element={<BackstageLayout />}>
             <Route index element={<Navigate to="events" replace />} />

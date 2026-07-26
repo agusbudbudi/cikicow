@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import SEO from '../components/SEO.jsx'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
+import { CreatorCardSkeleton, SkeletonGrid } from '../components/ui/LoadingState.jsx'
 import { listCreators } from '../lib/creatorsApi.js'
+import { CREATOR_TAG_OPTIONS } from '../data/creatorTags.js'
 
-const PAGE_SIZE = 10
+const PAGE_SIZE = 15
+const ALL_TAG = 'Semua'
 
 function CreatorAvatarFallback() {
   return (
@@ -19,10 +23,8 @@ function CreatorAvatarFallback() {
 
 function CreatorCard({ creator }) {
   return (
-    <a
-      href={`https://www.tiktok.com/@${creator.tiktokUsername}`}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      to={`/creator/${creator.id}`}
       className="group relative block aspect-[3/4] rounded-md overflow-hidden bg-limestone border border-obsidian/8"
     >
       {creator.image ? (
@@ -49,7 +51,7 @@ function CreatorCard({ creator }) {
           <img src="/assets/brand/tiktok-logo-square.webp" alt="" className="w-4 h-4 object-contain rounded-full" />
         </span>
       </div>
-    </a>
+    </Link>
   )
 }
 
@@ -57,10 +59,29 @@ export default function CreatorPage() {
   const [creators, setCreators] = useState(null)
   const [error, setError] = useState(null)
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
+  const [searchParams] = useSearchParams()
+  const [activeTag, setActiveTag] = useState(() => searchParams.get('tag') || ALL_TAG)
 
   useEffect(() => {
     listCreators().then(setCreators).catch((err) => setError(err.message))
   }, [])
+
+  const availableTags = useMemo(() => {
+    if (!creators) return []
+    const present = new Set(creators.map((c) => c.tag).filter(Boolean))
+    return CREATOR_TAG_OPTIONS.filter((tag) => present.has(tag))
+  }, [creators])
+
+  const filteredCreators = useMemo(() => {
+    if (!creators) return []
+    if (activeTag === ALL_TAG) return creators
+    return creators.filter((creator) => creator.tag === activeTag)
+  }, [creators, activeTag])
+
+  function handleTagSelect(tag) {
+    setActiveTag(tag)
+    setVisibleCount(PAGE_SIZE)
+  }
 
   return (
     <>
@@ -71,7 +92,7 @@ export default function CreatorPage() {
       />
       <Header />
       <main>
-        <section className="relative pt-16 md:pt-12 pb-6 md:pb-8">
+        <section className="relative pt-16 md:pt-12">
           <div className="relative z-10 max-w-[1280px] mx-auto px-4 md:px-12 text-center space-y-4">
             <span className="block mb-1 text-xs font-bold text-obsidian/60 uppercase tracking-widest">Talent Gallery</span>
             <h1 className="font-display font-extrabold text-4xl md:text-6xl text-obsidian tracking-tight">Our Creators</h1>
@@ -89,7 +110,13 @@ export default function CreatorPage() {
               </p>
             )}
 
-            {!creators && !error && <p className="text-center text-obsidian/50">Memuat...</p>}
+            {!creators && !error && (
+              <SkeletonGrid
+                count={PAGE_SIZE}
+                gridClassName="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6"
+                renderItem={() => <CreatorCardSkeleton />}
+              />
+            )}
 
             {creators && creators.length === 0 && (
               <p className="text-center text-obsidian/50">Belum ada creator.</p>
@@ -97,13 +124,35 @@ export default function CreatorPage() {
 
             {creators && creators.length > 0 && (
               <>
+                {availableTags.length > 0 && (
+                  <div className="flex flex-nowrap sm:flex-wrap overflow-x-auto sm:overflow-visible sm:justify-center gap-2 mb-8 -mx-4 px-4 sm:mx-0 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                    {[ALL_TAG, ...availableTags].map((tag) => (
+                      <button
+                        key={tag}
+                        type="button"
+                        onClick={() => handleTagSelect(tag)}
+                        className={`shrink-0 inline-flex items-center rounded-sm px-4 py-2 text-sm font-bold transition-colors cursor-pointer ${activeTag === tag
+                          ? 'bg-obsidian text-chalk'
+                          : 'bg-chalk text-obsidian/70 border border-obsidian/10 hover:border-obsidian/30'
+                          }`}
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {filteredCreators.length === 0 && (
+                  <p className="text-center text-obsidian/50">Belum ada creator untuk kategori ini.</p>
+                )}
+
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
-                  {creators.slice(0, visibleCount).map((creator) => (
+                  {filteredCreators.slice(0, visibleCount).map((creator) => (
                     <CreatorCard key={creator.id} creator={creator} />
                   ))}
                 </div>
 
-                {visibleCount < creators.length && (
+                {visibleCount < filteredCreators.length && (
                   <div className="text-center mt-12">
                     <button
                       type="button"
