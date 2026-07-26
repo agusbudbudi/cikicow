@@ -13,7 +13,7 @@ export default function CreatorAddPage() {
   const [form, setForm] = useState(EMPTY_FORM)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState(null)
-  const [done, setDone] = useState(false)
+  const [createdCreator, setCreatedCreator] = useState(null)
 
   function setField(field, val) {
     setForm((prev) => ({ ...prev, [field]: val }))
@@ -25,8 +25,8 @@ export default function CreatorAddPage() {
     setSaving(true)
 
     try {
-      await createCreator(form)
-      setDone(true)
+      const result = await createCreator(form)
+      setCreatedCreator(result)
     } catch (err) {
       setError(err.message)
     } finally {
@@ -53,13 +53,13 @@ export default function CreatorAddPage() {
         />
 
         <div className="max-w-2xl mx-auto px-4 md:px-0 pb-8 md:pb-12">
-          {done ? (
+          {createdCreator ? (
             <div className="bg-white rounded-sm border border-obsidian/8 p-8 text-center shadow-[0_15px_35px_-25px_rgba(7,6,7,0.2)] space-y-4">
               <h1 className="font-display font-extrabold text-2xl md:text-3xl text-obsidian">Profil kamu berhasil dikirim!</h1>
               <p className="text-obsidian/70 text-sm max-w-md mx-auto">
                 Terima kasih sudah mendaftar. Profil kamu sudah tersimpan dan akan tampil di halaman Talent Gallery Republik Cikicow.
               </p>
-              <Button href="/creator" className="mt-2">Lihat Halaman Creator</Button>
+              <Button href={`/creator/${createdCreator.id}`} className="mt-2">Lihat Profil Kamu</Button>
             </div>
           ) : (
             <>
